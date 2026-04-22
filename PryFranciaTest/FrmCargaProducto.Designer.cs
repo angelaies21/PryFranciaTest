@@ -37,20 +37,20 @@
             this.lblListaProd = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.grbdatos = new System.Windows.Forms.GroupBox();
+            this.grbTipo = new System.Windows.Forms.GroupBox();
+            this.btnEquipo = new System.Windows.Forms.RadioButton();
+            this.btnRepuesto = new System.Windows.Forms.RadioButton();
             this.grbAdicional = new System.Windows.Forms.GroupBox();
             this.chbGarantia = new System.Windows.Forms.CheckBox();
             this.chbEnvio = new System.Windows.Forms.CheckBox();
             this.chbInstalacion = new System.Windows.Forms.CheckBox();
-            this.lblProducto = new System.Windows.Forms.Label();
             this.cmbPrioducto = new System.Windows.Forms.ComboBox();
-            this.grbTipo = new System.Windows.Forms.GroupBox();
-            this.btnEquipo = new System.Windows.Forms.RadioButton();
-            this.btnRepuesto = new System.Windows.Forms.RadioButton();
-            this.btnSigui = new System.Windows.Forms.Button();
+            this.lblProducto = new System.Windows.Forms.Label();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.grbDatosClientes.SuspendLayout();
             this.grbdatos.SuspendLayout();
-            this.grbAdicional.SuspendLayout();
             this.grbTipo.SuspendLayout();
+            this.grbAdicional.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbDatosClientes
@@ -62,21 +62,23 @@
             this.grbDatosClientes.Controls.Add(this.lblListaProd);
             this.grbDatosClientes.Controls.Add(this.lblNombre);
             this.grbDatosClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDatosClientes.Location = new System.Drawing.Point(12, 25);
+            this.grbDatosClientes.Location = new System.Drawing.Point(12, 12);
             this.grbDatosClientes.Name = "grbDatosClientes";
             this.grbDatosClientes.Size = new System.Drawing.Size(390, 150);
             this.grbDatosClientes.TabIndex = 6;
             this.grbDatosClientes.TabStop = false;
             this.grbDatosClientes.Text = "DatosCliente";
+            this.grbDatosClientes.Enter += new System.EventHandler(this.grbDatosClientes_Enter);
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(290, 87);
+            this.btnSiguiente.Location = new System.Drawing.Point(290, 121);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(94, 23);
             this.btnSiguiente.TabIndex = 11;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnRegistrar
             // 
@@ -86,9 +88,11 @@
             this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // cmbListaProd
             // 
+            this.cmbListaProd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbListaProd.FormattingEnabled = true;
             this.cmbListaProd.Location = new System.Drawing.Point(128, 89);
             this.cmbListaProd.Name = "cmbListaProd";
@@ -101,6 +105,8 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(140, 21);
             this.txtNombre.TabIndex = 8;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblListaProd
             // 
@@ -124,17 +130,53 @@
             // 
             // grbdatos
             // 
+            this.grbdatos.Controls.Add(this.btnFinalizar);
             this.grbdatos.Controls.Add(this.grbTipo);
             this.grbdatos.Controls.Add(this.grbAdicional);
             this.grbdatos.Controls.Add(this.cmbPrioducto);
             this.grbdatos.Controls.Add(this.lblProducto);
             this.grbdatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbdatos.Location = new System.Drawing.Point(12, 193);
+            this.grbdatos.Location = new System.Drawing.Point(26, 168);
             this.grbdatos.Name = "grbdatos";
-            this.grbdatos.Size = new System.Drawing.Size(390, 218);
+            this.grbdatos.Size = new System.Drawing.Size(390, 259);
             this.grbdatos.TabIndex = 12;
             this.grbdatos.TabStop = false;
             this.grbdatos.Text = "Datos";
+            this.grbdatos.Visible = false;
+            // 
+            // grbTipo
+            // 
+            this.grbTipo.Controls.Add(this.btnEquipo);
+            this.grbTipo.Controls.Add(this.btnRepuesto);
+            this.grbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbTipo.Location = new System.Drawing.Point(6, 55);
+            this.grbTipo.Name = "grbTipo";
+            this.grbTipo.Size = new System.Drawing.Size(361, 49);
+            this.grbTipo.TabIndex = 6;
+            this.grbTipo.TabStop = false;
+            this.grbTipo.Text = "Tipo";
+            // 
+            // btnEquipo
+            // 
+            this.btnEquipo.AutoSize = true;
+            this.btnEquipo.Location = new System.Drawing.Point(204, 20);
+            this.btnEquipo.Name = "btnEquipo";
+            this.btnEquipo.Size = new System.Drawing.Size(64, 19);
+            this.btnEquipo.TabIndex = 7;
+            this.btnEquipo.TabStop = true;
+            this.btnEquipo.Text = "Equipo";
+            this.btnEquipo.UseVisualStyleBackColor = true;
+            // 
+            // btnRepuesto
+            // 
+            this.btnRepuesto.AutoSize = true;
+            this.btnRepuesto.Location = new System.Drawing.Point(55, 20);
+            this.btnRepuesto.Name = "btnRepuesto";
+            this.btnRepuesto.Size = new System.Drawing.Size(82, 19);
+            this.btnRepuesto.TabIndex = 6;
+            this.btnRepuesto.TabStop = true;
+            this.btnRepuesto.Text = "Repuestro";
+            this.btnRepuesto.UseVisualStyleBackColor = true;
             // 
             // grbAdicional
             // 
@@ -179,88 +221,56 @@
             this.chbInstalacion.Text = "Instalacion";
             this.chbInstalacion.UseVisualStyleBackColor = true;
             // 
-            // lblProducto
-            // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducto.Location = new System.Drawing.Point(11, 24);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(68, 16);
-            this.lblProducto.TabIndex = 0;
-            this.lblProducto.Text = "Productos";
-            // 
             // cmbPrioducto
             // 
+            this.cmbPrioducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPrioducto.FormattingEnabled = true;
             this.cmbPrioducto.Location = new System.Drawing.Point(108, 19);
             this.cmbPrioducto.Name = "cmbPrioducto";
             this.cmbPrioducto.Size = new System.Drawing.Size(174, 23);
             this.cmbPrioducto.TabIndex = 2;
             // 
-            // grbTipo
+            // lblProducto
             // 
-            this.grbTipo.Controls.Add(this.btnEquipo);
-            this.grbTipo.Controls.Add(this.btnRepuesto);
-            this.grbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbTipo.Location = new System.Drawing.Point(6, 55);
-            this.grbTipo.Name = "grbTipo";
-            this.grbTipo.Size = new System.Drawing.Size(361, 49);
-            this.grbTipo.TabIndex = 6;
-            this.grbTipo.TabStop = false;
-            this.grbTipo.Text = "Tipo";
+            this.lblProducto.AutoSize = true;
+            this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProducto.Location = new System.Drawing.Point(11, 22);
+            this.lblProducto.Name = "lblProducto";
+            this.lblProducto.Size = new System.Drawing.Size(68, 16);
+            this.lblProducto.TabIndex = 0;
+            this.lblProducto.Text = "Productos";
             // 
-            // btnEquipo
+            // btnFinalizar
             // 
-            this.btnEquipo.AutoSize = true;
-            this.btnEquipo.Location = new System.Drawing.Point(204, 20);
-            this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Size = new System.Drawing.Size(64, 19);
-            this.btnEquipo.TabIndex = 7;
-            this.btnEquipo.TabStop = true;
-            this.btnEquipo.Text = "Equipo";
-            this.btnEquipo.UseVisualStyleBackColor = true;
-            // 
-            // btnRepuesto
-            // 
-            this.btnRepuesto.AutoSize = true;
-            this.btnRepuesto.Location = new System.Drawing.Point(55, 20);
-            this.btnRepuesto.Name = "btnRepuesto";
-            this.btnRepuesto.Size = new System.Drawing.Size(82, 19);
-            this.btnRepuesto.TabIndex = 6;
-            this.btnRepuesto.TabStop = true;
-            this.btnRepuesto.Text = "Repuestro";
-            this.btnRepuesto.UseVisualStyleBackColor = true;
-            // 
-            // btnSigui
-            // 
-            this.btnSigui.Location = new System.Drawing.Point(294, 417);
-            this.btnSigui.Name = "btnSigui";
-            this.btnSigui.Size = new System.Drawing.Size(108, 31);
-            this.btnSigui.TabIndex = 13;
-            this.btnSigui.Text = "Siguiente";
-            this.btnSigui.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Location = new System.Drawing.Point(276, 218);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(108, 31);
+            this.btnFinalizar.TabIndex = 13;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // FrmCargaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(418, 460);
-            this.Controls.Add(this.btnSigui);
+            this.ClientSize = new System.Drawing.Size(415, 435);
             this.Controls.Add(this.grbdatos);
             this.Controls.Add(this.grbDatosClientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCargaProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCargaProducto";
             this.Load += new System.EventHandler(this.FrmCargaProducto_Load);
             this.grbDatosClientes.ResumeLayout(false);
             this.grbDatosClientes.PerformLayout();
             this.grbdatos.ResumeLayout(false);
             this.grbdatos.PerformLayout();
-            this.grbAdicional.ResumeLayout(false);
-            this.grbAdicional.PerformLayout();
             this.grbTipo.ResumeLayout(false);
             this.grbTipo.PerformLayout();
+            this.grbAdicional.ResumeLayout(false);
+            this.grbAdicional.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,6 +294,6 @@
         private System.Windows.Forms.RadioButton btnRepuesto;
         private System.Windows.Forms.ComboBox cmbPrioducto;
         private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.Button btnSigui;
+        private System.Windows.Forms.Button btnFinalizar;
     }
 }
