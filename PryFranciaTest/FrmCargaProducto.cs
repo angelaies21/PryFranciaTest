@@ -81,7 +81,30 @@ namespace PryFranciaTest
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
+            if (opRepuesto.Checked || opEquipo.Checked)
 
+            {
+                string adicionales = "";
+
+                if (opRepuesto.Checked) adicionales += "\n Respuesto \n";
+                if (opEquipo.Checked) adicionales += " Equipo \n";
+                if (chbInstalacion.Checked) adicionales += " Instalación \n";
+                if (chbEnvio.Checked) adicionales += " Envío \n";
+                if (chbGarantia.Checked) adicionales += " Garantía \n";
+                
+                MessageBox.Show("Carga completa \n Adicionales: " + adicionales);
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un tipo","Tìtulo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+                
+
+        }
+
+        private void chbInstalacion_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -37,16 +37,16 @@
             this.lblListaProd = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.grbdatos = new System.Windows.Forms.GroupBox();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.grbTipo = new System.Windows.Forms.GroupBox();
-            this.btnEquipo = new System.Windows.Forms.RadioButton();
-            this.btnRepuesto = new System.Windows.Forms.RadioButton();
+            this.opEquipo = new System.Windows.Forms.RadioButton();
+            this.opRepuesto = new System.Windows.Forms.RadioButton();
             this.grbAdicional = new System.Windows.Forms.GroupBox();
             this.chbGarantia = new System.Windows.Forms.CheckBox();
             this.chbEnvio = new System.Windows.Forms.CheckBox();
             this.chbInstalacion = new System.Windows.Forms.CheckBox();
             this.cmbPrioducto = new System.Windows.Forms.ComboBox();
             this.lblProducto = new System.Windows.Forms.Label();
-            this.btnFinalizar = new System.Windows.Forms.Button();
             this.grbDatosClientes.SuspendLayout();
             this.grbdatos.SuspendLayout();
             this.grbTipo.SuspendLayout();
@@ -136,7 +136,7 @@
             this.grbdatos.Controls.Add(this.cmbPrioducto);
             this.grbdatos.Controls.Add(this.lblProducto);
             this.grbdatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbdatos.Location = new System.Drawing.Point(26, 168);
+            this.grbdatos.Location = new System.Drawing.Point(12, 12);
             this.grbdatos.Name = "grbdatos";
             this.grbdatos.Size = new System.Drawing.Size(390, 259);
             this.grbdatos.TabIndex = 12;
@@ -144,10 +144,20 @@
             this.grbdatos.Text = "Datos";
             this.grbdatos.Visible = false;
             // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.Location = new System.Drawing.Point(276, 218);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(108, 31);
+            this.btnFinalizar.TabIndex = 13;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
             // grbTipo
             // 
-            this.grbTipo.Controls.Add(this.btnEquipo);
-            this.grbTipo.Controls.Add(this.btnRepuesto);
+            this.grbTipo.Controls.Add(this.opEquipo);
+            this.grbTipo.Controls.Add(this.opRepuesto);
             this.grbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbTipo.Location = new System.Drawing.Point(6, 55);
             this.grbTipo.Name = "grbTipo";
@@ -156,27 +166,27 @@
             this.grbTipo.TabStop = false;
             this.grbTipo.Text = "Tipo";
             // 
-            // btnEquipo
+            // opEquipo
             // 
-            this.btnEquipo.AutoSize = true;
-            this.btnEquipo.Location = new System.Drawing.Point(204, 20);
-            this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Size = new System.Drawing.Size(64, 19);
-            this.btnEquipo.TabIndex = 7;
-            this.btnEquipo.TabStop = true;
-            this.btnEquipo.Text = "Equipo";
-            this.btnEquipo.UseVisualStyleBackColor = true;
+            this.opEquipo.AutoSize = true;
+            this.opEquipo.Location = new System.Drawing.Point(204, 20);
+            this.opEquipo.Name = "opEquipo";
+            this.opEquipo.Size = new System.Drawing.Size(64, 19);
+            this.opEquipo.TabIndex = 7;
+            this.opEquipo.TabStop = true;
+            this.opEquipo.Text = "Equipo";
+            this.opEquipo.UseVisualStyleBackColor = true;
             // 
-            // btnRepuesto
+            // opRepuesto
             // 
-            this.btnRepuesto.AutoSize = true;
-            this.btnRepuesto.Location = new System.Drawing.Point(55, 20);
-            this.btnRepuesto.Name = "btnRepuesto";
-            this.btnRepuesto.Size = new System.Drawing.Size(82, 19);
-            this.btnRepuesto.TabIndex = 6;
-            this.btnRepuesto.TabStop = true;
-            this.btnRepuesto.Text = "Repuestro";
-            this.btnRepuesto.UseVisualStyleBackColor = true;
+            this.opRepuesto.AutoSize = true;
+            this.opRepuesto.Location = new System.Drawing.Point(55, 20);
+            this.opRepuesto.Name = "opRepuesto";
+            this.opRepuesto.Size = new System.Drawing.Size(78, 19);
+            this.opRepuesto.TabIndex = 6;
+            this.opRepuesto.TabStop = true;
+            this.opRepuesto.Text = "Repuesto";
+            this.opRepuesto.UseVisualStyleBackColor = true;
             // 
             // grbAdicional
             // 
@@ -208,7 +218,7 @@
             this.chbEnvio.Name = "chbEnvio";
             this.chbEnvio.Size = new System.Drawing.Size(56, 19);
             this.chbEnvio.TabIndex = 12;
-            this.chbEnvio.Text = "Envio";
+            this.chbEnvio.Text = "Envío";
             this.chbEnvio.UseVisualStyleBackColor = true;
             // 
             // chbInstalacion
@@ -218,8 +228,9 @@
             this.chbInstalacion.Name = "chbInstalacion";
             this.chbInstalacion.Size = new System.Drawing.Size(85, 19);
             this.chbInstalacion.TabIndex = 11;
-            this.chbInstalacion.Text = "Instalacion";
+            this.chbInstalacion.Text = "Instalación";
             this.chbInstalacion.UseVisualStyleBackColor = true;
+            this.chbInstalacion.CheckedChanged += new System.EventHandler(this.chbInstalacion_CheckedChanged);
             // 
             // cmbPrioducto
             // 
@@ -240,28 +251,18 @@
             this.lblProducto.TabIndex = 0;
             this.lblProducto.Text = "Productos";
             // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.Location = new System.Drawing.Point(276, 218);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(108, 31);
-            this.btnFinalizar.TabIndex = 13;
-            this.btnFinalizar.Text = "Finalizar";
-            this.btnFinalizar.UseVisualStyleBackColor = true;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
-            // 
             // FrmCargaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(415, 435);
+            this.ClientSize = new System.Drawing.Size(423, 303);
             this.Controls.Add(this.grbdatos);
             this.Controls.Add(this.grbDatosClientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCargaProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCargaProducto";
+            this.Text = "Registro Datos";
             this.Load += new System.EventHandler(this.FrmCargaProducto_Load);
             this.grbDatosClientes.ResumeLayout(false);
             this.grbDatosClientes.PerformLayout();
@@ -290,8 +291,8 @@
         private System.Windows.Forms.CheckBox chbEnvio;
         private System.Windows.Forms.CheckBox chbInstalacion;
         private System.Windows.Forms.GroupBox grbTipo;
-        private System.Windows.Forms.RadioButton btnEquipo;
-        private System.Windows.Forms.RadioButton btnRepuesto;
+        private System.Windows.Forms.RadioButton opEquipo;
+        private System.Windows.Forms.RadioButton opRepuesto;
         private System.Windows.Forms.ComboBox cmbPrioducto;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Button btnFinalizar;
