@@ -52,14 +52,14 @@ namespace PryFranciaTest
                 MessageBox.Show("Nombre regristrado con exito");
 
                 txtNombre.Text = "";
-                txtNombre.Focus();
+                txtNombre.Focus();  //eparece el mesnaje de error 
             }
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            grbDatosClientes.Visible=false;
-            grbdatos.Visible = true;
+            grbDatosClientes.Visible=false;  //oculta el grupobox de datos del cliente
+            grbdatos.Visible = true;        //muestra el grupobox de datos del producto
             this.Size = new System.Drawing.Size(429, 321);
         }
 
@@ -68,12 +68,12 @@ namespace PryFranciaTest
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                 
-                cmbPrioducto.Items.Add((string)txtNombre.Text);
-                cmbListaProd.Items.Add((string)txtNombre.Text);
+                cmbPrioducto.Items.Add((string)txtNombre.Text); //agrega lo q escribio
+                cmbListaProd.Items.Add((string)txtNombre.Text); //agrega lo mismo
 
                 MessageBox.Show("Nombre regristrado con exito", "Gestión de producto");
 
-                txtNombre.Text = "";
+                txtNombre.Text = ""; //lo limpia
                 txtNombre.Focus();               
 
             }               
