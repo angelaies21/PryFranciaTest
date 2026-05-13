@@ -29,5 +29,10 @@ namespace PryFranciaTest
 
 
         }
+
+        private void FrmIncio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

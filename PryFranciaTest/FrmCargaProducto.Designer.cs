@@ -214,7 +214,7 @@
             // chbEnvio
             // 
             this.chbEnvio.AutoSize = true;
-            this.chbEnvio.Location = new System.Drawing.Point(136, 41);
+            this.chbEnvio.Location = new System.Drawing.Point(134, 41);
             this.chbEnvio.Name = "chbEnvio";
             this.chbEnvio.Size = new System.Drawing.Size(56, 19);
             this.chbEnvio.TabIndex = 12;
